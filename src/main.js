@@ -44,7 +44,7 @@ Vue.directive('clickOutside', clickOutside)
 
 /* eslint-disable no-new */
 new Vue({
-	el: '#app',
+	 el: '#app',
 	router,
 	i18n,
 	store,
