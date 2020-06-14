@@ -6,7 +6,13 @@
   url('iconfont.ttf?t=1541579316141') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
   url('iconfont.svg?t=1541579316141#iconfont') format('svg'); /* iOS 4.1- */
 }
-
+@font-face {
+  font-family: "icon";
+  src: url('icon.ttf') format('truetype');
+}
+.ivu-icon[class*="-cus-"]{
+	font-family: icon;
+}
 .iconfont {
   font-family:"iconfont" !important;
   font-size:16px;
@@ -35,3 +41,6 @@
 
 .icon-woman:before { content: "\e7e5"; }
 
+.ivu-icon-cus-add::before{
+    content: "\e908";
+}
