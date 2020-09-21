@@ -103,7 +103,7 @@ var _postJson = function(params){
 		data : {}, // 发送的data
 		params : {},
 		success : function(d){}, // 成功后回调
-		error : null,   // 失败后回调
+		showErrorMsg : true,   // 失败后是否吐司
 		autoShowWait : false,   // 自动显示菊花
 		loadingText : "正在加载", // 加载的提示语
 		autoCloseWait : false,  // 自动关闭菊花
@@ -141,29 +141,22 @@ var _postJson = function(params){
 		try{
 			if(data){
 				switch(data.status){
-					case 1:// 成功
-						if(data.content){
-							if(params.success){
-								params.success.call(this, data.content, data);	
-							}
-						}else{
-							if(params.success){
-								params.success.call(this, null, data);
-							}		   		
-						}	 		
+                    case 1:// 成功
+                    
+                        return Promise.resolve(data.content || null, data);
+	 		
 						break;
 					case 2:// 回话过期或者未登录
 						
 						break;
 					default:// 失败或者其他
-						
-						var message = data.message ? data.message : "有点忙开个小差，稍后再试~";
-						if(params.error){
-							params.error.call(this, message, data);
-						}else{
-							new Lw().$Message.error(message);
-						}
-						break;
+                        
+                        var message = data.message ? data.message : '有点忙开个小差，稍后再试~'
+                        if(!ajaxParams.showErrorMsg) {
+                            new Lw().$Message.error(message);
+                        }
+                            
+                        return Promise.reject(message, data)
 				}
 			}
 		}catch(e){
@@ -176,25 +169,23 @@ var _postJson = function(params){
 	// 是否显示菊花
 	//ajaxParams["autoShowWait"] && loadingUtils.open(ajaxParams["loadingText"]);
 	
-	var errorFn = ajaxParams.error;
-	ajaxParams.error = function(d){
+	ajaxParams.error = function(message){
 		//ajaxParams.autoCloseWait && loadingUtils.close();
 		
 		// 制空加载样式
-		curLoadingButton.instance[curLoadingButton.isLoading] = false;
-		
-		var data = d.data;
-		if(errorFn){
-			errorFn(data.message, data);
-		} else if (data) {
-			new Lw().$Message.error(data.message);
-		}
+        curLoadingButton.instance[curLoadingButton.isLoading] = false;
+        
+        if(!ajaxParams.showErrorMsg) {
+            new Lw().$Message.error(message);
+        }
+            
+        return Promise.reject(message)
 	};
 	
 	try {
 		
 		// 交互方法
-		axiosUtils.postJson(ajaxParams);
+		return axiosUtils.postJson(ajaxParams);
 		
 	} catch (e) {
 		
@@ -211,7 +202,7 @@ var exportsMethods = {
 	 * @param {Object} params 配置定义的key
 	 */
 	postJson:function(params){
-		_postJson(params);
+		return _postJson(params);
 	},
 	
 	/**

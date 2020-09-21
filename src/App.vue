@@ -6,7 +6,14 @@
 
 <script>
 	export default {
-		name: 'App'
+        name: 'App',
+        created(){
+
+        },
+        mounted(){
+
+            console.log(11);
+        }
 	}
 </script>
 

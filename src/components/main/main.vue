@@ -23,7 +23,11 @@
 					<div class="tag-nav-wrapper">
 						<tags-nav :value="$route" @input="handleClick" :list="tagNavList" @on-close="handleCloseTag" />
 					</div>
+                   
 					<Content class="content-wrapper">
+                         <div id="single-vue" class="single-spa-vue">
+                            <div id="vue"></div>
+                        </div>
 						<keep-alive :include="cacheList">
 							<router-view/>
 						</keep-alive>
@@ -48,7 +52,8 @@
 	import routers from '@/router/routers'
 	import minLogo from '@/assets/images/logo-min.jpg'
 	import maxLogo from '@/assets/images/logo.jpg'
-	import './main.less'
+    import './main.less'
+    
 	export default {
 		name: 'Main',
 		components: {

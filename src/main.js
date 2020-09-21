@@ -12,6 +12,8 @@ import { directive as clickOutside } from 'v-click-outside-x'
 import installPlugin from '@/plugin'
 import './index.less'
 import '@/assets/icons/iconfont.css'
+// import '@/single-spa-config.js'
+require('@/single-spa-config.js')
 
 // 实际打包时应该不引入mock
 /* eslint-disable */
@@ -44,7 +46,7 @@ Vue.directive('clickOutside', clickOutside)
 
 /* eslint-disable no-new */
 new Vue({
-	 el: '#app',
+	el: '#app',
 	router,
 	i18n,
 	store,

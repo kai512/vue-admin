@@ -28,6 +28,24 @@ export default [{
     import('@/view/login/login.vue')
 },
 {
+    path: '/vue*',
+    name: 'vue',
+    meta: {
+      title: 'vue',
+      hideInMenu: true
+    },
+    component: Main
+},
+{
+    path: '/demo*',
+    name: 'demo',
+    meta: {
+      title: 'demo',
+      hideInMenu: true
+    },
+    component: Main
+},
+{
   path: '/',
   name: '_home',
   redirect: '/home',
