@@ -1,4 +1,4 @@
-/** * 富文本编辑器组件 * @author xzhixin@linewell.com * @since 2018-07-26 */
+/** * 富文本编辑器组件 * @author xzhixin * @since 2018-07-26 */
 
 <template>
 	<div style="height:270px;">

@@ -1,6 +1,6 @@
 /**
  * 裁剪的工具类
- * @author hlijing@linewell.com
+ * @author hlijing
  * @since 2018-07-26
  */
 import { picCut } from "@/libs/uploader"

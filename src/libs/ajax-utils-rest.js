@@ -1,7 +1,7 @@
 /**
  * axios的工具类--rest接口
  *
- * @author jliangliang@linewell.com
+ * @author jliangliang
  * @since 2018-07-03
  */
 import axios from 'axios'
