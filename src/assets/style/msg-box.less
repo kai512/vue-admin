@@ -1,0 +1,38 @@
+@import 'vars.less';
+.ivu-modal-header p,
+.ivu-modal-header-inner{
+    vertical-align: top;
+    font-weight: bold;
+    font-size: @font-size-large;
+}
+.ivu-modal-footer{
+    text-align: center;
+}
+.ivu-modal-body{
+    max-height: ~'calc(90vh - 49px - 57px)';
+    overflow-y: auto;
+}
+.ivu-modal-content{
+    margin: auto;
+    background: @content-color;
+}
+.ivu-modal-close{
+    .ivu-icon-ios-close{
+        font-size: 28px;
+        &:hover{
+            color: @main-color;
+        }
+    }
+    .ivu-icon-ios-close:before{
+        content: "\F176";
+    }
+}
+
+.ivu-modal-wrap{
+    display: flex;
+    align-items: safe center;
+    justify-content: safe center;
+    .ivu-modal{
+        top: 0;
+    }
+}

@@ -1,42 +1,49 @@
 <template>
-	<Layout style="height: 100%" class="main">
-		<Sider hide-trigger collapsible :width="256" :collapsed-width="64" v-model="collapsed" class="left-sider" :style="{overflow: 'hidden'}">
-			<side-menu accordion ref="sideMenu" :active-name="$route.name" :collapsed="collapsed" @on-select="turnToPage" :menu-list="menuList">
-				<!-- 需要放在菜单上面的内容，如Logo，写在side-menu标签内部，如下 -->
-				<div class="logo-con">
-					<img v-show="!collapsed" :src="maxLogo" key="max-logo" />
-					<img v-show="collapsed" :src="minLogo" key="min-logo" />
-				</div>
-			</side-menu>
-		</Sider>
-		<Layout>
-			<Header class="header-con">
-				<header-bar :collapsed="collapsed" @on-coll-change="handleCollapsedChange">
-					<user :message-unread-count="unreadCount" :user-avatar="userAvatar" />
-					<language v-if="$config.useI18n" @on-lang-change="setLocal" style="margin-right: 10px;" :lang="local" />
-					<error-store v-if="$config.plugin['error-store'] && $config.plugin['error-store'].showInHeader" :has-read="hasReadErrorPage" :count="errorCount"></error-store>
-					<fullscreen v-model="isFullscreen" style="margin-right: 10px;" />
-				</header-bar>
-			</Header>
-			<Content class="main-content-con">
-				<Layout class="main-layout-con">
-					<div class="tag-nav-wrapper">
-						<tags-nav :value="$route" @input="handleClick" :list="tagNavList" @on-close="handleCloseTag" />
-					</div>
-                   
-					<Content class="content-wrapper">
-                         <div id="single-vue" class="single-spa-vue">
-                            <div id="vue"></div>
+    <div id='app'>
+        <Layout style="height: 100%" class="main" >
+            <Sider hide-trigger collapsible :width="240" :collapsed-width="64" v-model="collapsed" class="left-sider" :style="{overflow: 'hidden'}">
+                <!-- 需要放在菜单上面的内容，如Logo，写在side-menu标签内部，如下 -->
+                <div class="logo-con">
+                    <div v-show="!collapsed" class="logo">
+                        <img  :src="maxLogo" key="max-logo"/>
+                        <span>房产信息管理平台</span>
+                    </div>
+                    <div v-show="collapsed" class="logo-mini">
+                        <img  :src="minLogo" key="min-logo" />
+                    </div>
+                </div>
+                <side-menu class="side-menu" accordion ref="sideMenu" :active-name="$route.name" :collapsed="collapsed" @on-select="turnToPage" :menu-list="menuList">
+                </side-menu>
+            </Sider>
+            <Layout>
+                <Header class="header-con">
+                    <header-bar :collapsed="collapsed" @on-coll-change="handleCollapsedChange">
+                        <user :message-unread-count="unreadCount" :user-avatar="userAvatar" />
+                        <language v-if="$config.useI18n" @on-lang-change="setLocal" style="margin-right: 10px;" :lang="local" />
+                        <!-- <error-store v-if="$config.plugin['error-store'] && $config.plugin['error-store'].showInHeader" :has-read="hasReadErrorPage" :count="errorCount"></error-store> -->
+                        <!-- <fullscreen v-model="isFullscreen" style="margin-right: 10px;" /> -->
+                    </header-bar>
+                </Header>
+                <Content class="main-content-con">
+                    <Layout class="main-layout-con">
+                        <div class="tag-nav-wrapper">
+                            <tags-nav :value="$route" @input="handleClick" :list="tagNavList" @on-close="handleCloseTag" />
                         </div>
-						<keep-alive :include="cacheList">
-							<router-view/>
-						</keep-alive>
-						<ABackTop :height="100" :bottom="80" :right="50" container=".content-wrapper"></ABackTop>
-					</Content>
-				</Layout>
-			</Content>
-		</Layout>
-	</Layout>
+                        <Content class="content-wrapper">
+                            <!-- <div id="single-vue" class="single-spa-vue">
+                                <div id="vue"></div>
+                            </div> -->
+                            <keep-alive :include="cacheList">
+                                <router-view/>
+                            </keep-alive>
+                            <ABackTop :height="100" :bottom="80" :right="50" container=".content-wrapper"></ABackTop>
+                        </Content>
+                    </Layout>
+                </Content>
+            </Layout>
+        </Layout>
+        <router-view/>
+    </div>
 </template>
 <script>
 	import SideMenu from './components/side-menu'
@@ -49,11 +56,11 @@
 	import ErrorStore from './components/error-store'
 	import { mapMutations, mapActions, mapGetters } from 'vuex'
 	import { getNewTagList, routeEqual } from '@/libs/util'
-	import routers from '@/router/routers'
-	import minLogo from '@/assets/images/logo-min.jpg'
-	import maxLogo from '@/assets/images/logo.jpg'
+	import routers from '@/router/module'
+	import minLogo from '@/assets/images/logo.png'
+	import maxLogo from '@/assets/images/logo.png'
     import './main.less'
-    
+
 	export default {
 		name: 'Main',
 		components: {
@@ -71,7 +78,7 @@
 				collapsed: false,
 				minLogo,
 				maxLogo,
-				isFullscreen: false
+                isFullscreen: false
 			}
 		},
 		computed: {
@@ -165,7 +172,8 @@
 					query,
 					params,
 					meta
-				} = newRoute
+                } = newRoute
+
 				this.addTag({
 					route: {
 						name,
@@ -210,7 +218,25 @@
 				})
 			}
 			// 获取未读消息条数
-			this.getUnreadMessageCount()
+			//this.getUnreadMessageCount()
 		}
 	}
 </script>
+<style lang="less">
+.size {
+	width: 100%;
+	height: 100%;
+}
+
+html,
+body {
+	.size;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
+
+#app {
+	.size;
+}
+</style>

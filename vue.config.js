@@ -40,17 +40,17 @@ module.exports = {
 	// 设为false打包时不生成.map文件
 	productionSourceMap: false,
 //	configureWebpack : config => {
-//		
+//
 //		 require('@vux/loader').merge(config, {
 //	  	  	plugins: ['vux-ui']
 //	  	})
 //	}
 	// 这里写你调用接口的基础路径，来解决跨域，如果设置了代理，那你本地开发环境的axios的baseUrl要写为 '' ，即空字符串
 	devServer: {
-		host : "192.168.5.20",
-	   	port : "8082",
+		host : "0.0.0.0",
+	   	port : "8084",
 	   	proxy: {
-	   		
+
 	   		'/rest': {
 		        target : 'http://192.168.5.78:8888',
 		        ws : true,
@@ -58,6 +58,6 @@ module.exports = {
 		        pathRewrite : { '^/rest': ''}
 		    }
 	   	}
-	   	
+
 	}
 }

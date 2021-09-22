@@ -1,0 +1,257 @@
+// 主色
+@primary-color:         #ff7f29;//主色
+@primary-hover-color:   tint(@primary-color, 20%);//主色
+@primary-active-color:  shade(@primary-color, 5%);//主色
+@main-color:            @primary-color;
+@main-gra-color:        linear-gradient(to right,#ff7e29,#fea531);//主渐变色
+// 主色end
+
+// 辅助色
+@success-color:         #22ac38;//成功色
+@warning-color:         #ff7f29;//警告色
+@error-color:           #f5222d;//错误色
+@link-color:            #3086f8;//链接色
+@border-color:          #e8e8e8;//边框色
+// 辅助色end
+
+// 中性色
+@title-color:           @text-dark;//标题色
+@text-color:            #333;//正文色
+@text-color-light:      @text-light;//*辅助文本
+@border-color-base:     @border-color;//边框色
+@border-color-split:    #e3e8ee;//分割线
+@content-color:         #fff;//*内容背景色
+@btn-disable-color:     #bbbbbb;//按钮置灰
+@input-placeholder-color: @btn-disable-color;//水印
+@input-disabled-color:  @text-light;//输入框disabled
+@input-disabled-bg:     @background-color-base; //输入框背景
+@disabled-color         : #bbb;
+// 中性色end
+
+
+
+.orange{
+   color : @warning-color;
+}
+.green{
+   color: @success-color;
+}
+.red{
+   color: @error-color;
+}
+.gray{
+    color: #bbb;
+}
+.blue{
+    color: #3086f8;
+}
+
+//文本
+@text-dark:             #333;//最深
+@text-normal:           @text-color;//普通
+@text-light:            #999;//灰色
+
+
+
+//常用间距
+@s-space:               8px;
+@n-space:               12px;
+@m-space:               16px;
+@l-space:               20px;
+@xl-space:              24px;
+
+// 圆角
+@radius-small:4px;
+@radius-base:6px;
+@radius-large:10px;
+
+@card-radius:@radius-small;
+
+
+// 圆角end
+
+//字号
+@tag-font-size:         12px;
+@font-size-small:       14px;
+@font-size-base:        16px;
+@font-size-large:       18px;
+@font-size-micro:       12px;
+
+@font-size-larger:      20px;
+//背景
+@background-color-base: #f8f8f8;  // base
+
+
+//上传图片/图标尺寸
+@upload-img-s:          40px;
+@upload-img-m:          60px;
+@upload-img-l:          80px;
+@upload-img-xl:         120px;
+//上传
+@border-color-dark:     #dcdee2;
+@text-light:            #80848f;
+@border-color-base:     #e9eaec;
+//上传附件
+
+// 按钮
+@btn-font-weight        : normal;
+@btn-padding-base       : 5px 20px;
+@btn-padding-large      : 6px 15px 7px 15px;
+@btn-padding-small      : 2px 7px;
+@btn-font-size          : 14px;
+@btn-font-size-large    : 16px;
+@btn-border-radius      : 4px;
+@btn-border-radius-small: 3px;
+@btn-group-border       : shade(@primary-color, 5%);
+
+@filter-btn-padding-base: 5px 10px;
+
+@btn-disable-color      : #bbb;
+@btn-disable-bg         : @background-color-base;
+@btn-disable-border     : @border-color-base;
+
+@btn-default-color      : @text-color;
+@btn-default-bg         : white;
+@btn-default-border     : @border-color-base;
+
+@btn-primary-color      : #fff;
+@btn-primary-bg         : @primary-color;
+
+@btn-ghost-color        : @text-color;
+@btn-ghost-bg           : transparent;
+@btn-ghost-border       : @border-color-base;
+
+@btn-circle-size        : 32px;
+@btn-circle-size-large  : 36px;
+@btn-circle-size-small  : 24px;
+
+
+//侧栏
+@left-sider-bg          : #2b394f;
+@menu-opened-bg         : #364760;
+@sider-padding-space    : 0 12px;
+@sider-radius           : @radius-small;
+//头部
+
+@header-con-bg          : @content-color;
+// 大页签
+@tag-nav-bg             : @content-color;
+@ivu-tag-bg             : @content-color;
+@tag-btn-bg             : @content-color;
+// Layout and Grid
+@grid-columns           : 40;
+@grid-gutter-width      : 0;
+
+// 标题
+@g-tit-s-bg:#fafafa;
+
+//表格
+@table-th-color:@background-color-base;
+@table-td-color:@content-color;
+
+// 输入框
+@input-height-base           : 32px;
+@input-height-large          : 36px;
+@input-height-small          : 24px;
+
+@input-padding-horizontal    : 7px;
+@input-padding-vertical-base : 4px;
+@input-padding-vertical-small: 1px;
+@input-padding-vertical-large: 6px;
+// label
+@label-padding               : 10px 12px 10px 0;
+body{
+    .mt-s{
+        margin-top: @s-space;
+    }
+    .mt-m{
+        margin-top: @m-space;
+    }
+    .mt-l{
+        margin-top: @l-space;
+    }
+    .mb-n{
+        margin-bottom: @n-space;
+    }
+    .mb-s{
+        margin-bottom: @s-space;
+    }
+    .mb-m{
+        margin-bottom: @m-space;
+    }
+    .mb-l{
+        margin-bottom: @l-space;
+    }
+    .ml-s{
+        margin-left: @s-space;
+    }
+    .ml-m{
+        margin-left: @m-space;
+    }
+    .ml-l{
+        margin-left: @l-space;
+    }
+    .mr-s{
+        margin-right: @s-space;
+    }
+    .mr-m{
+        margin-right: @m-space;
+    }
+    .mr-l{
+        margin-right: @l-space;
+    }
+    .mr-xl{
+        margin-right: @xl-space;
+    }
+    .mt-xl{
+        margin-top: @xl-space;
+    }
+    .m-s{
+        margin: @s-space;
+    }
+    .m-m{
+        margin: @m-space;
+    }
+    .m-l{
+        margin: @l-space;
+    }
+    .m-xl{
+        margin: @xl-space;
+    }
+    .pl-s{
+        padding-left: @s-space;
+    }
+    .pr-s{
+        padding-right: @s-space;
+    }
+    .pl-m{
+        padding-left: @m-space;
+    }
+    .pr-m{
+        padding-right: @m-space;
+    }
+    .p-s{
+        padding: @s-space;
+    }
+    .p-m{
+        padding: @m-space;
+    }
+    .p-l{
+        padding: @l-space;
+    }
+    .p-xl{
+        padding: @xl-space;
+    }
+    .m0{
+        margin: 0 !important;
+    }
+    .p0{
+        padding: 0 !important;
+    }
+    .mt0{
+        margin-top: 0 !important;
+    }
+    .mb0{
+        margin-bottom: 0 !important;
+    }
+}

@@ -11,8 +11,6 @@
 
         },
         mounted(){
-
-            console.log(11);
         }
 	}
 </script>

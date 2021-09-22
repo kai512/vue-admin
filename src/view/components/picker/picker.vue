@@ -1,21 +1,12 @@
 <template>
-    <div class="filter-box">
-        <i-form :label-width="120">
-            <Row>
-                <i-col span="24">
-                    <Form-Item label="日期快捷方式：">
-                        <date-picker @show-date="getFilterTime" style="display: inline-block;vertical-align: top;"></date-picker>
-                    </Form-Item>
-                </i-col>
-            </Row>
-             <Row>
-                <i-col span="24">
-                    <Form-Item label="日期：">
-                        <date-picker @show-date="getFilterTime" :show-quick-way="false" style="display: inline-block;vertical-align: top;"></date-picker>
-                    </Form-Item>
-
-                </i-col>
-            </Row>
+    <div class='g-form'>
+       <i-form class="label-width-8em"  label-colon="：">
+            <Form-Item label="日期快捷方式">
+                <date-picker @show-date="getFilterTime"></date-picker>
+            </Form-Item>
+            <Form-Item label="日期">
+                <date-picker @show-date="getFilterTime" :show-quick-way="false" ></date-picker>
+            </Form-Item>
         </i-form>
     </div>
 </template>

@@ -1,0 +1,953 @@
+.ztree li span.button.chk.checkbox_true_part/*-------------------------------------
+zTree Style
+
+version:	3.5.19
+author:		Hunter.z
+email:		hunter.z@263.net
+website:	http://code.google.com/p/jquerytree/
+
+-------------------------------------*/
+
+.ztree * {padding:0; margin:0; font-size:12px; font-family: Verdana, Arial, Helvetica, AppleGothic, sans-serif}
+.ztree {margin:0; padding:5px; color:#333}
+.ztree li{padding:0; margin:0; list-style:none; line-height:14px; text-align:left; white-space:nowrap; outline:0}
+.ztree li ul{ margin:0; padding:0 0 0 18px}
+.ztree li ul.line{ background:url(./img/line_conn.gif) 0 0 repeat-y;}
+
+.ztree li a {padding:1px 3px 0 0; margin:0; cursor:pointer; height:17px; color:#333; background-color: transparent;
+	text-decoration:none; vertical-align:top; display: inline-block}
+.ztree li a:hover {text-decoration:underline}
+.ztree li a.curSelectedNode {padding-top:0px; background-color:#FFE6B0; color:@main-color; height:16px; border:1px #FFB951 solid; opacity:0.8;}
+.ztree li a.curSelectedNode_Edit {padding-top:0px; background-color:#FFE6B0; color:black; height:16px; border:1px #FFB951 solid; opacity:0.8;}
+.ztree li a.tmpTargetNode_inner {padding-top:0px; background-color:#316AC5; color:white; height:16px; border:1px #316AC5 solid;
+	opacity:0.8; filter:alpha(opacity=80)}
+.ztree li a.tmpTargetNode_prev {}
+.ztree li a.tmpTargetNode_next {}
+.ztree li a input.rename {height:14px; width:80px; padding:0; margin:0;
+	font-size:12px; border:1px #7EC4CC solid; *border:0px}
+.ztree li span {line-height:16px; margin-right:2px}
+.ztree li span.button {line-height:0; margin:0; width:16px; height:16px; display: inline-block; vertical-align:middle;
+	border:0 none; cursor: pointer;outline:none;
+	background-color:transparent; background-repeat:no-repeat; background-attachment: scroll;
+	background-image:url("./img/zTreeStandard.png");}
+
+.ztree li span.button.chk {width:13px; height:13px; margin:0 3px 0 0; cursor: auto}
+.ztree li span.button.chk.checkbox_false_full {background-position:0 0}
+.ztree li span.button.chk.checkbox_false_full_focus {background-position:0 -14px}
+.ztree li span.button.chk.checkbox_false_part {background-position:0 -28px}
+.ztree li span.button.chk.checkbox_false_part_focus {background-position:0 -42px}
+.ztree li span.button.chk.checkbox_false_disable {background-position:0 -56px}
+.ztree li span.button.chk.checkbox_true_full {background-position:-14px 0}
+.ztree li span.button.chk.checkbox_true_full_focus {background-position:-14px -14px}
+.ztree li span.button.chk.checkbox_true_part {background-position:-14px -28px}
+.ztree li span.button.chk.checkbox_true_part_focus {background-position:-14px -42px}
+.ztree li span.button.chk.checkbox_true_disable {background-position:-14px -56px}
+.ztree li span.button.chk.radio_false_full {background-position:-28px 0}
+.ztree li span.button.chk.radio_false_full_focus {background-position:-28px -14px}
+.ztree li span.button.chk.radio_false_part {background-position:-28px -28px}
+.ztree li span.button.chk.radio_false_part_focus {background-position:-28px -42px}
+.ztree li span.button.chk.radio_false_disable {background-position:-28px -56px}
+.ztree li span.button.chk.radio_true_full {background-position:-42px 0}
+.ztree li span.button.chk.radio_true_full_focus {background-position:-42px -14px}
+.ztree li span.button.chk.radio_true_part {background-position:-42px -28px}
+.ztree li span.button.chk.radio_true_part_focus {background-position:-42px -42px}
+.ztree li span.button.chk.radio_true_disable {background-position:-42px -56px}
+
+.ztree li span.button.switch {width:18px; height:18px}
+.ztree li span.button.root_open{background-position:-92px -54px}
+.ztree li span.button.root_close{background-position:-74px -54px}
+.ztree li span.button.roots_open{background-position:-92px 0}
+.ztree li span.button.roots_close{background-position:-74px 0}
+.ztree li span.button.center_open{background-position:-92px -18px}
+.ztree li span.button.center_close{background-position:-74px -18px}
+.ztree li span.button.bottom_open{background-position:-92px -36px}
+.ztree li span.button.bottom_close{background-position:-74px -36px}
+.ztree li span.button.noline_open{background-position:-92px -72px}
+.ztree li span.button.noline_close{background-position:-74px -72px}
+.ztree li span.button.root_docu{ background:none;}
+.ztree li span.button.roots_docu{background-position:-56px 0}
+.ztree li span.button.center_docu{background-position:-56px -18px}
+.ztree li span.button.bottom_docu{background-position:-56px -36px}
+.ztree li span.button.noline_docu{ background:none;}
+
+.ztree li span.button.ico_open{margin-right:2px; background-position:-110px -16px; vertical-align:top; *vertical-align:middle}
+.ztree li span.button.ico_close{margin-right:2px; background-position:-110px 0; vertical-align:top; *vertical-align:middle}
+.ztree li span.button.ico_docu{margin-right:2px; background-position:-110px -32px; vertical-align:top; *vertical-align:middle}
+.ztree li span.button.edit {margin-right:2px; background-position:-110px -48px; vertical-align:top; *vertical-align:middle}
+.ztree li span.button.remove {margin-right:2px; background-position:-110px -64px; vertical-align:top; *vertical-align:middle}
+
+.ztree li span.button.ico_loading{margin-right:2px; background:url(./img/loading.gif) no-repeat scroll 0 0 transparent; vertical-align:top; *vertical-align:middle}
+
+ul.tmpTargetzTree {background-color:#FFE6B0; opacity:0.8; filter:alpha(opacity=80)}
+
+span.tmpzTreeMove_arrow {width:16px; height:16px; display: inline-block; padding:0; margin:2px 0 0 1px; border:0 none; position:absolute;
+	background-color:transparent; background-repeat:no-repeat; background-attachment: scroll;
+	background-position:-110px -80px; background-image:url("./img/zTreeStandard.png"); }
+
+ul.ztree.zTreeDragUL {margin:0; padding:0; position:absolute; width:auto; height:auto;overflow:hidden; background-color:#cfcfcf; border:1px #00B83F dotted; opacity:0.8; filter:alpha(opacity=80)}
+.zTreeMask {z-index:10000; background-color:#cfcfcf; opacity:0.0; filter:alpha(opacity=0); position:absolute}
+
+/*通用*/
+.ztree li a.curSelectedNode,
+.ztree li a{
+	font-size: 0;
+	height: 30px;
+	position: relative;
+	border:0;
+	padding: 0;
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: middle;
+}
+.ztree li a.curSelectedNode{
+	background: none;
+}
+.ztree li a span{
+	vertical-align: middle !important;
+	font-size: 14px;
+	line-height: 30px;
+}
+.ztree li span.button.bottom_docu,
+.ztree li span.button.center_docu{
+	background: none;
+}
+.ztree li ul.line{
+	background: none;
+}
+.ztree li span.button.chk{
+	margin: 0;
+	width: 16px;
+	height: 16px;
+}
+
+.ztree li span.button.switch{
+	margin-right: 4px;
+}
+
+.ztree li span.button{
+	background-image: url(img/zTreeStandard_2.png);
+}
+.ztree li span.button.noline_docu{
+	background: none !important;
+}
+
+.ztree li span.button.chk.checkbox_true_full {
+    background-position: -18px 0;
+}
+/*获得焦点*/
+.ztree li span.button.chk.checkbox_false_full_focus {
+    background-position: 0 -18px;
+}
+.ztree li span.button.chk.checkbox_true_full_focus {
+    background-position: -18px -18px;
+}
+/*获得焦点*/
+/*半选*/
+.ztree li span.button.chk.checkbox_true_part {
+    background-position: -18px -36px;
+}
+.ztree li span.button.chk.checkbox_true_part_focus {
+    background-position: -18px -36px;
+}
+.ztree li span.button.chk.checkbox_false_part {
+    background-position: 0 -36px;
+}
+.ztree li span.button.chk.checkbox_false_part_focus {
+    background-position: 0 -36px;
+}
+/*禁用*/
+.ztree li span.button.chk.checkbox_true_disable {
+    background-position: -18px -72px;
+}
+.ztree li span.button.chk.checkbox_true_disable~.node_name{
+	color: #BBB;
+}
+.ztree li span.button.chk.checkbox_false_disable {
+    background-position: 0 -72px;
+}
+.ztree li span.button.chk.checkbox_false_disable~.node_name{
+	color: #BBB;
+}
+/*加载中*/
+.ztree li span.button.ico_loading{
+	background-image: url(img/loading.gif) !important;
+	vertical-align: middle;
+}
+/*加载中end*/
+
+
+/*单选*/
+.ztree li span.button.chk.radio_false_full {
+    background-position: -36px 0;
+}
+.ztree li span.button.chk.radio_false_part {
+    background-position: -36px -36px;
+}
+.ztree li span.button.chk.radio_true_full {
+    background-position: -54px 0;
+}
+.ztree li span.button.chk.radio_true_part {
+    background-position: -54px -36px;
+}
+.ztree li span.button.chk.radio_true_disable {
+    background-position: -54px -72px;
+}
+.ztree li span.button.chk.radio_false_disable {
+    background-position: -36px -72px;
+}
+.ztree li span.button.chk.radio_false_full_focus {
+    background-position: -36px -18px;
+}
+.ztree li span.button.chk.radio_true_full_focus {
+    background-position: -54px -18px;
+}
+.ztree li span.button.chk.radio_true_part_focus {
+    background-position: -54px -36px;
+}
+.ztree li span.button.chk.radio_false_part_focus {
+    background-position: -36px -36px;
+}
+/*单选end*/
+/*禁用end*/
+.ztree li ul {
+    padding: 0 0 0 14px;
+}
+.ztree li span.button {
+    margin-right: 4px !important;
+}
+/*通用end*/
+
+/*左边导航*/
+
+.left-nav.z-tree-box{
+	padding: 6px 0;
+	margin-bottom: 10px;
+}
+.ztree.left-nav-box li a{
+	padding: 0;
+    padding-left: 4px;
+	box-sizing: border-box;
+}
+.ztree.left-nav-box{
+	padding: 0;
+}
+.ztree.left-nav-box li ul{ margin:0; padding:0}
+.ztree.left-nav-box li {line-height:36px;}
+.ztree.left-nav-box li a {height:36px;padding-top: 0px;width: 100%;position: relative;display: block;}
+.ztree.left-nav-box li a:hover {text-decoration:none; background-color: #fda36b;}
+.ztree.left-nav-box li a:hover .node_name{color: white;}
+.ztree.left-nav-box li a span.button.switch {visibility:visible}
+.ztree.showIcon li a span.button.switch {visibility:visible}
+.ztree.left-nav-box li a.curSelectedNode {background-color:#ff7f29;border:0;height:36px;}
+/*显示修改添加按钮*/
+.ztree.left-nav-box li a.curSelectedNode>span.edit2-btn,
+.ztree.left-nav-box li a.curSelectedNode>span.add2-btn{
+	display: inline-block;
+}
+.ztree.left-nav-box li a:hover>span.edit2-btn,
+.ztree.left-nav-box li a:hover>span.add2-btn{
+	display: inline-block;
+}
+/*显示修改添加按钮end*/
+.ztree.left-nav-box li a.curSelectedNode .node_name{color: white;}
+.ztree.left-nav-box li span {line-height:36px;height: 100%;}
+.ztree.left-nav-box li span.button {margin-top: -7px;}
+.ztree.left-nav-box li span.button.switch {width: 16px;height: 16px;margin-top: -5px;}
+.ztree.left-nav-box li span.button {background-image:url(img/left_menuForOutLook-4.png); }
+.ztree.left-nav-box li span.button.noline_docu {background: none;}
+.ztree.left-nav-box li span.button.noline_open {background-position: 0 -18px;}
+.ztree.left-nav-box li span.button.noline_close {background-position: -18px -18px;}
+.ztree.left-nav-box li a.curSelectedNode span.button.noline_close,
+.ztree.left-nav-box li a:hover span.button.noline_close{
+    background-position: -18px 0;
+}
+.ztree.left-nav-box li a.curSelectedNode span.button.noline_open,
+.ztree.left-nav-box li a:hover span.button.noline_open{
+    background-position: 0 0;
+}
+.ztree.left-nav-box li span.button.ico_close{
+	display: none;
+}
+.ztree.left-nav-box li span.button.noline_close,
+.ztree.left-nav-box li span.button.noline_open{
+	margin-right: 2px;
+}
+.ztree.left-nav-box li span {
+	text-overflow: ellipsis;
+	display: inline-block;
+	overflow: hidden;
+	word-break: break-all;
+	white-space: nowrap;
+	vertical-align: middle;
+}
+.ztree.left-nav-box li span.button.ico_open{
+	display: none;
+}
+.ztree.left-nav-box li span.button.ico_loading{
+	display: none !important;
+}
+.ztree.left-nav-box li span.button.switch.level2~span.node_name{
+	position: relative;
+}
+.ztree.left-nav-box li a.curSelectedNode  span.button.switch.level2~span.node_name:before,
+.ztree.left-nav-box li a:hover span.button.switch.level2~span.node_name:before{
+	color: #d6000f;
+}
+.ztree.left-nav-box li a.curSelectedNode{
+	opacity: 1;
+}
+.ztree.left-nav-box li .opera-btn{
+    position: absolute;
+    margin-top: 0;
+    line-height: 36px;
+    height: 36px;
+    padding-right: 4px;
+    right:0;
+    top:0;
+    display: none;
+    z-index: 9;
+}
+.ztree.left-nav-box li a:hover  .opera-btn,
+.ztree.left-nav-box li a.curSelectedNode .opera-btn{
+	display: block;
+}
+.ztree.left-nav-box li span.del-btn:before{
+    font-family: icon-font;
+    content: "\e921";
+    font-size: 16px;
+    color: white;
+    z-index: 99;
+    line-height: 36px;
+    height: 36px;
+    width: 20px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+}
+.ztree.left-nav-box li span.edit:before{
+    font-family: icon-font;
+    content: "\e907";
+    font-size: 16px;
+    color: white;
+    z-index: 99;
+    line-height: 36px;
+    height: 36px;
+    width: 16px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+}
+.ztree.left-nav-box li span.add:before{
+    font-family: icon-font;
+    content: "\e908";
+    font-size: 16px;
+    color: white;
+    z-index: 99;
+    line-height: 36px;
+    height: 36px;
+    width: 16px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+}
+/*置灰处理*/
+.ztree.left-nav-box li.disabled .node_name{
+	color: #bbb;
+}
+/*置灰处理end*/
+/*拖拽样式*/
+ul.ztree.zTreeDragUL{
+	display:inline-block;
+	background:#4c7eef;
+	color:white;
+	line-height:36px;
+	height:36px;
+	border-color:white;
+	z-index: 999999;
+}
+ul.ztree.zTreeDragUL .button{
+	display:none;
+}
+ul.ztree.zTreeDragUL a:before{
+	display: none !important;
+}
+ul.ztree.zTreeDragUL .node_name{
+	color:white;
+	display:inline-block;
+	margin-left:0;
+	padding-left:0;
+	margin-right:60px;
+	line-height:36px;
+	vertical-align:top;
+	padding-left:6px;
+}
+/*显示编辑添加*/
+ul.ztree.zTreeDragUL li span.edit2-btn,
+ul.ztree.zTreeDragUL li span.add2-btn{
+	display: inline-block;
+}
+/*显示编辑添加end*/
+/*拖拽样式end*/
+/*左边导航end*/
+
+/*图标*/
+.ztree li span.button.ico_close,
+.ztree li span.button.ico_open,
+.ztree li span.button.ico_docu,{
+	display: none;
+}
+.ztree li span.button.ico_close.icon_dept,
+.ztree li span.button.ico_open.icon_dept,
+.ztree li span.button.ico_docu.icon_dept{
+	background-position: -127px 0;
+	display: inline-block;
+}
+.ztree li span.button.ico_close.icon_member,
+.ztree li span.button.ico_open.icon_member,
+.ztree li span.button.ico_docu.icon_member{
+	background-position: -127px -16px;
+	display: inline-block;
+}
+/*图标end*/
+
+
+/*超过控制*/
+.ztree.left-nav-box li a{
+	position: relative;
+}
+.ztree.left-nav-box li a .opera-btn:before,
+.ztree.left-nav-box li a:before{
+	content: "";
+	right: 0;
+	top:0;
+	height: 100%;
+	width: 30px;
+	background: red;
+	position: absolute;
+	z-index: 3;
+	background: linear-gradient(to right,rgba(255,255,255,0),@content-color 80%);
+}
+.ztree.left-nav-box li a .opera-btn:before{
+	right: auto;
+	left: -30px;
+}
+.ztree.left-nav-box li a:hover:before{
+	background: linear-gradient(to right,rgba(255,255,255,0),#fda36b 80%);
+}
+.ztree.left-nav-box li a:hover .opera-btn{
+	background: #fda36b;
+}
+.ztree.left-nav-box li a:hover .opera-btn:before{
+	background: linear-gradient(to right,rgba(255,255,255,0),#fda36b 80%);
+}
+.ztree.left-nav-box li a.curSelectedNode:before{
+	background: linear-gradient(to right,rgba(255,255,255,0),#ff7f29 80%);
+}
+.ztree.left-nav-box li a.curSelectedNode .opera-btn{
+	background: #ff7f29;
+}
+.ztree.left-nav-box li a.curSelectedNode .opera-btn:before{
+	background: linear-gradient(to right,rgba(255,255,255,0),#ff7f29 80%);
+}
+
+/*超过控制end*/
+
+/*小圆点*/
+.ztree.left-nav-box em{
+	position: absolute;
+	border-radius: 10px;
+    min-width: 20px;
+    background: #ff3b30;
+    color: #fff;
+    line-height: 18px;
+    text-align: center;
+    padding: 0 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    right: 10px;
+    top: 8px;
+    z-index: 4;
+    box-shadow: 0 0 10px 10px white;
+}
+.ztree.left-nav-box li a:hover em,
+.ztree.left-nav-box li a.curSelectedNode em{
+	display: none;
+}
+.sub-left-slider .ivu-badge{
+	background: white;
+}
+.sub-left-slider .ivu-badge:before{
+    content: "";
+    left: -20px;
+    top: 0;
+    height: 100%;
+    width: 22px;
+    position: absolute;
+    z-index: 3;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), #ffffff 80%);
+}
+/*小圆点end*/
+
+/*ztree表格*/
+.ztree *{
+    font: normal 14px "microsoft yahei","simsun";
+}
+.ztree-table .ztree {
+    padding: 0;
+    border: 1px solid #e6e6e6;
+    border-bottom: 0;
+}
+.ztree-table .ztree li{
+    overflow: hidden;
+}
+.ztree-table .ztree li a {
+    vertical-align: top;
+    height: 30px;
+    font-size: 0;
+}
+.ztree-table .ztree li > a {
+    width: 100%;
+    position: relative;
+}
+
+.ztree-table .ztree li > a,
+.ztree-table .ztree li a.curSelectedNode {
+    padding-top: 0px;
+    background: none;
+    height: 40px;
+    border: none;
+    cursor: default;
+    opacity: 1;
+}
+.ztree-table .ztree li > a > div {
+    font-size: 0;
+    position: relative;
+}
+.ztree-table .ztree li:not(.head) > a:hover{
+    background: #fafafa;
+}
+.ztree-table .ztree li ul {
+    padding-left: 0px
+}
+
+.ztree-table .ztree div.diy span {
+    line-height: 40px;
+    display: inline-block;
+    vertical-align: top !important;
+}
+
+.ztree-table .ztree div.diy {
+    height: 100%;
+    width: 16.69%;
+    line-height: 40px;
+    border-bottom: 1px solid #e6e6e6;
+    border-right: 1px solid #e6e6e6;
+    text-align: left;
+    display: inline-block;
+    box-sizing: border-box;
+    color: #000;
+    overflow: hidden;
+    font-size: 14px;
+    padding: 0 16px;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: top;
+    margin: -1px 0;
+}
+.ztree-table .ztree .head div.diy {
+    color: #666;
+    font-size: 12px;
+}
+.ztree-table .ztree div.diy:nth-child(1) {
+    display: none;
+}
+.ztree-table .ztree div.diy:nth-child(2){
+    width: 20%;
+}
+.ztree-table .ztree div.diy:nth-child(3){
+    width: 20%;
+}
+.ztree-table .ztree div.diy:nth-child(4){
+    width: 20%;
+}
+.ztree-table .ztree div.diy:nth-child(5){
+    width: 20%;
+}
+.ztree-table .ztree div.diy:nth-child(6){
+    width: 20%;
+}
+
+.ztree-table.depart .ztree div.diy:nth-child(1) {
+    display: none;
+}
+.ztree-table.depart .ztree div.diy:nth-last-child(1){
+    width: 30%;
+}
+.ztree-table.depart .ztree div.diy{
+    width: 14%;
+}
+.ztree-table .ztree div.swich{
+    position: relative;
+}
+.ztree-table .ztree div.swich:before{
+    position: absolute;
+    width: 21px;
+    height: 100%;
+    right: 0;
+    top:0;
+    background-size: 44px 1px;
+    content: "";
+    border-right: white 8px solid;
+}
+.ztree-table .ztree a:hover div.swich:before{
+    background-position: -21px 0;
+    border-right: #fafafa 8px solid;
+}
+.ztree-table .ztree .head {
+    background: #f5f5f5;
+}
+
+.ztree-table .add-pic{
+    cursor: pointer;
+    color: #a57e53;
+}
+.ztree-table .pic-box{
+    width: 32px;
+    height: 32px;
+    border: 1px solid #e6e6e6;
+    position: relative;
+    margin-top: 4px;
+    cursor: pointer;
+}
+.ztree-table .pic-box>img{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    margin: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+.ztree-table .move-btn{
+    margin-right: 16px;
+    cursor: pointer;
+}
+.ztree-table .move-btn:hover{
+    text-decoration: underline;
+}
+.ztree-table .btn{
+    color: #4e80ef;
+    cursor: pointer;
+    margin-right: 16px;
+}
+.ztree-table .btn:hover {
+    text-decoration: underline;
+}
+.ztree-table .empty-box{
+    padding: 50px;
+    border-bottom: 1px solid #e6e6e6;
+}
+ /*按钮*/
+.ztree-table input[type='radio'],
+.ztree-table input[type='checkbox'] {
+    display: none;
+}
+.ztree-table .icon_div {
+    display: inline-block;
+}
+
+.ztree-table .icon_div a {
+    display: inline-block;
+    width: 27px;
+    height: 20px;
+    cursor: pointer;
+}
+.ztree-table .ztree li span.button.switch {
+    margin-right: 4px;
+    margin-left: -6px;
+    width: 18px;
+    height: 18px;
+    margin-top: 12px;
+    // background-image: url(img/zTreeStandard-list.png);
+}
+.ztree-table .ztree li span.button.noline_docu {
+    background: 0 0;
+}
+.ztree-table .ztree div.diy:last-child{
+	border-right:0;
+}
+.ztree-table .ztree li span.button.chk{
+	margin: 11px !important;
+	position: relative;
+}
+.ztree-table .ztree li span.button.chk:before{
+	content: "";
+    bottom: -13px;
+    left: -12px;
+    right: -12px;
+    position: absolute;
+    height: 1px;
+    background: #e6e6e6;
+    z-index: 9;
+}
+.ztree-table .ztree li span.button.chk:after{
+	content: "";
+    bottom: -12px;
+    top: -12px;
+    right: -12px;
+    width: 1px;
+    position: absolute;
+    background: #e6e6e6;
+    z-index: 9;
+}
+/*end--按钮*/
+/*end--ztree表格*/
+.ztree.open-user-header-docu:not(.have-bg-icon) li span.button.ico_docu{
+	display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: none;
+}
+.ztree.open-user-header-docu li span.button.ico_docu img{
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.ztree.open-user-header-docu li span.button.ico_docu .info{
+	font-size: 12px;
+}
+.ztree.open-user-header-docu .node_name{
+	display: inline-block;
+}
+.ztree.open-user-header-docu li a{
+	overflow: visible;
+	min-height: 30px;
+	height: auto;
+	padding: 2px 0;
+}
+
+/*无半选情况*/
+.ztree.single-lv-select li span.button{
+	background-image:url(img/zTreeStandard_2_1.png)
+}
+
+
+/*-------------------------------------
+zTree Style
+
+自定义配置 ztree颜色
+2021 07
+-------------------------------------*/
+@import url("../../assets/style/vars.less");
+@font-face {
+  font-family: "z-icon";
+  src: url('iconfont/icon.ttf') format('truetype');
+}
+// 可编辑侧栏颜色
+.ztree.left-nav-box li a.curSelectedNode{
+    background: @primary-active-color;
+}
+.ztree.left-nav-box li a.curSelectedNode .opera-btn{
+    background: @primary-active-color;
+}
+.ztree.left-nav-box li a.curSelectedNode .opera-btn:before{
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), @primary-active-color 80%);
+}
+.ztree.left-nav-box li a:hover{
+    background-color: @primary-hover-color;
+}
+.ztree.left-nav-box li a:hover .opera-btn{
+    background-color: @primary-hover-color;
+}
+.ztree.left-nav-box li a:hover .opera-btn:before{
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), @primary-hover-color 80%);
+}
+.ztree.left-nav-box li a:hover:before{
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), @primary-hover-color 80%);
+}
+// 可编辑侧栏颜色end
+// 字体颜色
+.ztree li a{
+    color: @text-color;
+}
+.ztree li a span{
+    font-size: @font-size-base;
+}
+// 图标
+
+   //可编辑侧栏图标end
+.ztree li span.button{
+    background: none;
+    color: white;
+    transition: all .2s;
+     &::before{
+         font-family: z-icon;
+         display: inline-block;
+         vertical-align: top;
+         width: 100%;
+         line-height: 16px;
+         font-size: 12px;
+         text-align: center;
+     }
+}
+
+    //部分选中
+.ztree li span.button.chk.checkbox_false_part{
+    background: @primary-color;
+    border-radius: 2px;
+    &::before{
+        content: "\e907";
+    }
+}
+.ztree li span.button.chk.checkbox_false_part_focus{
+    background: @primary-color;
+    border-radius: 2px;
+    box-shadow: 0 0 4px fade(@primary-color, 40%);
+    &::before{
+        content: "\e907";
+    }
+}
+.ztree li span.button.chk.checkbox_true_full{
+    background: @primary-color;
+    border-radius: 2px;
+    &::before{
+        content: "\e906";
+    }
+}
+.ztree li span.button.chk.checkbox_true_full_focus{
+    background: @primary-color;
+    border-radius: 2px;
+    box-shadow: 0 0 4px fade(@primary-color, 40%);
+    &::before{
+        content: "\e906";
+    }
+}
+
+.ztree li span.button.chk.checkbox_false_full{
+    border: solid 1px @border-color;
+    border-radius: 2px;
+}
+.ztree li span.button.chk.checkbox_false_full_focus{
+    border: solid 1px fade(@primary-color, 20%);
+    border-radius: 2px;
+    box-shadow: 0 0 4px fade(@primary-color, 20%);
+    background: fade(@primary-color, 5%);
+}
+////////////////////////////////////
+    //部分选中
+.ztree li span.button.chk.radio_false_part{
+    background: fade(@primary-color,10);
+    box-shadow: 0 0 4px fade(@primary-color, 10%) inset;
+    border: solid 1px @primary-color;
+    border-radius: 50%;
+}
+.ztree li span.button.chk.radio_false_part_focus{
+    background: fade(@primary-color,10);
+    box-shadow: 0 0 4px fade(@primary-color, 10%) inset,0 0 4px fade(@primary-color, 40%);
+    border: solid 1px @primary-color;
+    border-radius: 50%;
+}
+
+.ztree li span.button.chk.radio_true_full{
+    color: @primary-color;
+    background: fade(@primary-color,10);
+    box-shadow: 0 0 4px fade(@primary-color, 10%) inset;
+    border: solid 1px @primary-color;
+    border-radius: 50%;
+    &::before{
+        content: "\e908";
+    }
+}
+
+.ztree li span.button.chk.radio_true_full_focus{
+    background: @primary-color;
+    border-radius: 50%;
+    box-shadow: 0 0 4px fade(@primary-color, 40%),0 0 4px fade(@primary-color, 40%) inset;
+    &::before{
+        content: "\e908";
+    }
+}
+
+.ztree li span.button.chk.radio_false_full{
+    border: solid 1px @border-color;
+    border-radius: 50%;
+}
+.ztree li span.button.chk.radio_false_full_focus{
+    border: solid 1px fade(@primary-color, 20%);
+    border-radius: 50%;
+    box-shadow: 0 0 4px fade(@primary-color, 20%);
+    background: fade(@primary-color, 5%);
+}
+
+// 箭头
+.ztree li span.button.roots_open{
+    color: @text-color;
+    &::before{
+        font-family: z-icon;
+        display: inline-block;
+        vertical-align: top;
+        width: 100%;
+        line-height: 16px;
+        font-size: 12px;
+        text-align: center;
+        content: "\e903";
+    }
+}
+.ztree li span.button.bottom_close{
+    color: @text-color;
+    &::before{
+        font-family: z-icon;
+        display: inline-block;
+        vertical-align: top;
+        width: 100%;
+        line-height: 16px;
+        font-size: 12px;
+        text-align: center;
+        content: "\e905";
+    }
+}
+
+.ztree.left-nav-box li span.button.switch{
+    transition: none;
+    margin-top: 0;
+    background: none;
+}
+.ztree.left-nav-box li span.button.noline_open{
+    color: @text-color;
+    &::before{
+        font-family: z-icon;
+        display: inline-block;
+        vertical-align: top;
+        width: 100%;
+        line-height: 16px;
+        font-size: 12px;
+        text-align: center;
+        content: "\e903";
+    }
+}
+.ztree.left-nav-box li span.button.noline_close{
+    color: @text-color;
+    &::before{
+        font-family: z-icon;
+        display: inline-block;
+        vertical-align: top;
+        width: 100%;
+        line-height: 16px;
+        font-size: 12px;
+        text-align: center;
+        content: "\e905";
+    }
+}
+.ztree.left-nav-box li a.curSelectedNode span.button.noline_open, .ztree.left-nav-box li a:hover span.button.noline_open{
+    color: white;
+}
+.ztree.left-nav-box li a.curSelectedNode span.button.noline_close, .ztree.left-nav-box li a:hover span.button.noline_close{
+    color: white;
+}
+// 箭头end
+// 图标end

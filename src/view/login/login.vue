@@ -1,17 +1,18 @@
-<style lang="less">
-	@import './login.less';
-</style>
-
 <template>
-	<div class="login">
-		<div class="login-con">
-			<Card icon="log-in" title="欢迎登录" :bordered="false">
-				<div class="form-con">
-					<login-form @on-success-valid="handleSubmit"></login-form>
-					<p class="login-tip">输入任意用户名和密码即可</p>
-				</div>
-			</Card>
-		</div>
+	<div class="login-x">
+        <div class="tit-x">
+            <img src="../../assets/images/logo.png" />
+            <span>社区通统一工作平台</span>
+        </div>
+        <div class="card">
+            <div class="tab-x">
+                <div class="cell active">账号密码登录</div>
+                <div class="cell">验证码登录</div>
+            </div>
+            <div class="form-con">
+                <login-form @on-success-valid="handleSubmit"></login-form>
+            </div>
+        </div>
 	</div>
 </template>
 
@@ -31,13 +32,15 @@
 				userName,
 				password
 			}) {
+
 				this.handleLogin({
 					userName,
 					password
 				}).then(res => {
 					this.getUserInfo().then(res => {
+              
 						this.$router.push({
-							name: this.$config.homeName
+							name: 'form'
 						})
 					})
 				})
@@ -46,6 +49,7 @@
 	}
 </script>
 
-<style>
-
+<style lang="less" scoped>
+    @import '../../assets/style/vars.less';
+    @import './login.less';
 </style>

@@ -8,7 +8,7 @@ export const setToken = (token) => {
   Cookies.set(TOKEN_KEY, token, { expires: cookieExpires || 1 })
 }
 
-export const TOKEN_KEY = 'token'
+export const TOKEN_KEY = 'token_work'
 
 export const APP_ID_KEY = 'APP_ID'
 
@@ -36,7 +36,7 @@ const showThisMenuEle = (item, access) => {
  */
 export const getMenuByRouter = (list, access) => {
   let res = []
-  forEach(list, item => {
+  forEach(list, (item, index) => {
     if (!item.meta || (item.meta && !item.meta.hideInMenu)) {
       let obj = {
         icon: (item.meta && item.meta.icon) || '',
@@ -46,10 +46,15 @@ export const getMenuByRouter = (list, access) => {
       if ((hasChild(item) || (item.meta && item.meta.showAlways)) && showThisMenuEle(item, access)) {
         obj.children = getMenuByRouter(item.children, access)
       }
+
+      // 取第一个有权限的菜单不能删除
+      if(!hasChild(item) && index == 0 && !config.homeName) config.homeName = item.name;
       if (item.meta && item.meta.href) obj.href = item.meta.href
       if (showThisMenuEle(item, access)) res.push(obj)
     }
   })
+
+
   return res
 }
 
@@ -57,10 +62,8 @@ export const getMenuByRouter = (list, access) => {
  * @param {Array} routeMetched 当前路由metched
  * @returns {Array}
  */
-export const getBreadCrumbList = (route, homeRoute) => {
-  let homeItem = { ...homeRoute, icon: homeRoute.meta.icon }
+export const getBreadCrumbList = (route) => {
   let routeMetched = route.matched
-  if (routeMetched.some(item => item.name === homeRoute.name)) return [homeItem]
   let res = routeMetched.filter(item => {
     return item.meta === undefined || !item.meta.hideInBread
   }).map(item => {
@@ -79,7 +82,7 @@ export const getBreadCrumbList = (route, homeRoute) => {
   res = res.filter(item => {
     return !item.meta.hideInMenu
   })
-  return [{ ...homeItem, to: homeRoute.path }, ...res]
+  return [...res]
 }
 
 export const getRouteTitleHandled = (route) => {
@@ -126,7 +129,7 @@ export const getTagNavListFromLocalstorage = () => {
  * @param {Array} routers 路由列表数组
  * @description 用于找到路由列表中name为home的对象
  */
-export const getHomeRoute = (routers, homeName = 'home') => {
+export const getHomeRoute = (routers, homeName = config.homeName) => {
   let i = -1
   let len = routers.length
   let homeRoute = {}
@@ -431,4 +434,13 @@ export const getAuthClient = () => {
 		}),
 		token : getToken() || ""
 	}
+}
+
+/**
+ * 设置应用信息
+ */
+ export const setAppInfo = ({appId, areaCode}) => {
+	
+	Cookies.set(APP_ID_KEY, appId || '', { expires: cookieExpires || 1 })
+    //Cookies.set(AREA_CODE_KEY, areaCode, { expires: cookieExpires || 1 })
 }

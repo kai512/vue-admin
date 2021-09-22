@@ -1,6 +1,6 @@
 /**
  * 高德地图工具类
- * @author hlijing
+ * @author hlijing@linewell.com
  * @since 2018-7-6
  */
 

@@ -1,33 +1,51 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import routes from './routers'
+import modules from './module'
 import store from '@/store'
 import iView from 'view-design'
-import { setToken, getToken, canTurnTo, setTitle } from '@/libs/util'
+import { setToken, getToken, setTitle, getAppInfo } from '@/libs/util'
 import config from '@/config'
-const {
-	homeName
-} = config
 
+import { canTurnTo } from '@/libs/login-filter'
+import { constructorRouters } from '@/libs/router-factory'
+import { getMenuList } from '@/api/user'
+import menus from "@/mock/data/menus"
 Vue.use(Router)
 const router = new Router({
-	routes,
+	routes : [...modules],
 	mode: 'history'
 })
 const LOGIN_PAGE_NAME = 'login'
+const turnTo = (to, from, next) => {
+    let { appId } = getAppInfo();
+	canTurnTo(to, from).then(() => {
+        let menusList = constructorRouters(menus);
+        store.commit('addRouters', menusList)
+        router.addRoutes(menusList)
+        
+        next();
+        // 这边可以返回一个Promise，处理业务的权限过滤，如闽政通用户授权
+        // getMenuList.then((menus) => {
+        //     constructorRouters(menus);
 
-const turnTo = (to, access, next) => {
-	if(canTurnTo(to.name, access, routes)) next() // 有权限，可访问
-	else next({
-		replace: true,
-		name: 'error_401'
-	}) // 无权限，重定向到401页面
+        //     next();
+        // })
+        
+        
+	}).catch(() => {
+        setToken('');
+        next({      
+            replace : true,
+            name : LOGIN_PAGE_NAME + '-by-appid',
+            params : {appId}
+        })
+	})
 }
 
 router.beforeEach((to, from, next) => {
 	iView.LoadingBar.start()
-	const token = getToken()
-	next();
+    turnTo(to, from, next)
+
 })
 
 router.afterEach(to => {

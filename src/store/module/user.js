@@ -20,6 +20,7 @@ export default {
 		access: '',
 		hasGetInfo: false,
 		unreadCount: 0,
+        userInfo: {},
 		messageUnreadList: [],
 		messageReadedList: [],
 		messageTrashList: [],
@@ -35,6 +36,9 @@ export default {
 		setUserName(state, name) {
 			state.userName = name
 		},
+        setUserInfo (state, data) {
+            state.userInfo = data || {}
+        },
 		setAccess(state, access) {
 			state.access = access
 		},
@@ -83,19 +87,13 @@ export default {
 		// 登录
 		handleLogin({
 			commit
-		}, {
-			userName,
-			password
-		}) {
-			userName = userName.trim()
+		}, sendData) {
 			return new Promise((resolve, reject) => {
-				login({
-					userName,
-					password
-				}).then(res => {
-					const data = res.data
-					commit('setToken', data.token)
-					resolve()
+				login(sendData).then(res => {
+					const data = res || {}
+					commit('setToken', data.userTokenId || '') // token
+
+					resolve(data)
 				}).catch(err => {
 					reject(err)
 				})
@@ -110,6 +108,7 @@ export default {
 				logout(state.token).then(() => {
 					commit('setToken', '')
 					commit('setAccess', [])
+                    window.localStorage.clear(); // 清空本地数据
 					resolve()
 				}).catch(err => {
 					reject(err)
@@ -127,13 +126,11 @@ export default {
 		}) {
 			return new Promise((resolve, reject) => {
 				try {
-					getUserInfo(state.token).then(res => {
-						const data = res.data
-						commit('setAvatar', data.avatar)
-						commit('setUserName', data.name)
-						commit('setUserId', data.user_id)
-						commit('setAccess', data.access)
-						commit('setHasGetInfo', true)
+					getUserInfo().then(res => {
+						const data = res || {}
+                        commit('setAvatar', data.userHeaderPicUrl || '')
+                        commit('setUserName',  data.name || '')
+                        commit('setUserInfo', data)
 						resolve(data)
 					}).catch(err => {
 						reject(err)

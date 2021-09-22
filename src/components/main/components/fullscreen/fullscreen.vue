@@ -22,7 +22,8 @@
 		},
 		methods: {
 			handleFullscreen() {
-				let main = document.body
+				// let main = document.body
+                let main = document.getElementById('fullScreenArea');
 				if(this.value) {
 					if(document.exitFullscreen) {
 						document.exitFullscreen()

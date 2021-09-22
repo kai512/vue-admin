@@ -242,11 +242,11 @@ ul.ztree.zTreeDragUL {margin:0; padding:0; position:absolute; width:auto; height
 .ztree.left-nav-box li ul{ margin:0; padding:0}
 .ztree.left-nav-box li {line-height:36px;}
 .ztree.left-nav-box li a {height:36px;padding-top: 0px;width: 100%;position: relative;display: block;}
-.ztree.left-nav-box li a:hover {text-decoration:none; background-color: #7c9ff1;}
+.ztree.left-nav-box li a:hover {text-decoration:none; background-color: #fda36b;}
 .ztree.left-nav-box li a:hover .node_name{color: white;}
 .ztree.left-nav-box li a span.button.switch {visibility:visible}
 .ztree.showIcon li a span.button.switch {visibility:visible}
-.ztree.left-nav-box li a.curSelectedNode {background-color:#4c7eef;border:0;height:36px;}
+.ztree.left-nav-box li a.curSelectedNode {background-color:#ff7f29;border:0;height:36px;}
 /*显示修改添加按钮*/
 .ztree.left-nav-box li a.curSelectedNode>span.edit2-btn,
 .ztree.left-nav-box li a.curSelectedNode>span.add2-btn{
@@ -307,7 +307,7 @@ ul.ztree.zTreeDragUL {margin:0; padding:0; position:absolute; width:auto; height
 .ztree.left-nav-box li span {
 	/*max-width: 170px;
 	max-width: 110px;*/
-	/*max-width: 88px;*/	
+	/*max-width: 88px;*/
 	text-overflow: ellipsis;
 	display: inline-block;
 	overflow: hidden;
@@ -371,7 +371,7 @@ ul.ztree.zTreeDragUL {margin:0; padding:0; position:absolute; width:auto; height
 	display: block;
 }
 .ztree.left-nav-box li span.del-btn:before{
-    font-family: icon;
+    font-family: icon-font;
     content: "\e921";
     font-size: 16px;
     color: white;
@@ -384,7 +384,7 @@ ul.ztree.zTreeDragUL {margin:0; padding:0; position:absolute; width:auto; height
     vertical-align: top;
 }
 .ztree.left-nav-box li span.edit:before{
-    font-family: icon;
+    font-family: icon-font;
     content: "\e907";
     font-size: 16px;
     color: white;
@@ -397,7 +397,7 @@ ul.ztree.zTreeDragUL {margin:0; padding:0; position:absolute; width:auto; height
     vertical-align: top;
 }
 .ztree.left-nav-box li span.add:before{
-    font-family: icon;
+    font-family: icon-font;
     content: "\e908";
     font-size: 16px;
     color: white;
@@ -502,22 +502,22 @@ ul.ztree.zTreeDragUL li span.add2-btn{
 	left: -30px;
 }
 .ztree.left-nav-box li a:hover:before{
-	background: linear-gradient(to right,rgba(255,255,255,0),#7c9ff1 80%);
+	background: linear-gradient(to right,rgba(255,255,255,0),#fda36b 80%);
 }
 .ztree.left-nav-box li a:hover .opera-btn{
-	background: #7c9ff1;
+	background: #fda36b;
 }
 .ztree.left-nav-box li a:hover .opera-btn:before{
-	background: linear-gradient(to right,rgba(255,255,255,0),#7c9ff1 80%);
+	background: linear-gradient(to right,rgba(255,255,255,0),#fda36b 80%);
 }
 .ztree.left-nav-box li a.curSelectedNode:before{
-	background: linear-gradient(to right,rgba(255,255,255,0),#4c7eef 80%);
+	background: linear-gradient(to right,rgba(255,255,255,0),#ff7f29 80%);
 }
 .ztree.left-nav-box li a.curSelectedNode .opera-btn{
-	background: #4c7eef;
+	background: #ff7f29;
 }
 .ztree.left-nav-box li a.curSelectedNode .opera-btn:before{
-	background: linear-gradient(to right,rgba(255,255,255,0),#4c7eef 80%);
+	background: linear-gradient(to right,rgba(255,255,255,0),#ff7f29 80%);
 }
 
 /*超过控制end*/
@@ -666,7 +666,6 @@ ul.ztree.zTreeDragUL li span.add2-btn{
     height: 100%;
     right: 0;
     top:0;
-//  background: url(../../images/mask-bg.png) repeat-y left;
     background-size: 44px 1px;
     content: "";
     border-right: white 8px solid;
@@ -721,7 +720,7 @@ ul.ztree.zTreeDragUL li span.add2-btn{
     border-bottom: 1px solid #e6e6e6;
 }
  /*按钮*/
-.ztree-table input[type='radio'], 
+.ztree-table input[type='radio'],
 .ztree-table input[type='checkbox'] {
     display: none;
 }
@@ -806,4 +805,3 @@ ul.ztree.zTreeDragUL li span.add2-btn{
 .ztree.single-lv-select li span.button{
 	background-image:url(img/zTreeStandard_2_1.png)
 }
-

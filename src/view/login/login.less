@@ -1,29 +1,133 @@
-.login{
+.login-x{
     width: 100%;
     height: 100%;
-    background-image: url('../../assets/images/login-bg.jpg');
+    background:#06064f url('../../assets/images/login-bg.jpg') no-repeat center;
     background-size: cover;
-    background-position: center;
     position: relative;
-    &-con{
-        position: absolute;
-        right: 160px;
-        top: 50%;
-        transform: translateY(-60%);
-        width: 300px;
-        &-header{
-            font-size: 16px;
-            font-weight: 300;
-            text-align: center;
-            padding: 30px 0;
-        }
-        .form-con{
-            padding: 10px 0 0;
-        }
-        .login-tip{
-            font-size: 10px;
-            text-align: center;
-            color: #c3c3c3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    .tit-x{
+        font-size: 40px;
+        display: flex;
+        align-items: center;
+        img{
+            margin-right: 16px;
         }
     }
+    .card{
+       margin-top: 28px;
+       background-color: rgba(255, 255, 255, 0.15);
+       box-shadow: 0 0 7px rgba(255,255,255,.5)inset, 0 0 10px rgba(0,0,0,.2);
+       padding: 20px 44px 20px;
+       border-radius: 10px;
+       width: 488px;
+       box-sizing: border-box;
+    }
+    .tab-x{
+        display: flex;
+        .cell{
+            flex: 1;
+            text-align: center;
+            font-size: 20px;
+            line-height: 40px;
+            position: relative;
+            cursor: pointer;
+            transition: color  .3s;
+             &.active{
+                 color: @main-color;
+             }
+             &:hover{
+                 color: fade(@main-color,80);
+             }
+            &.active:after{
+                width: 70px;
+                height: 4px;
+                border-radius: 2px;
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                margin-left:-35px;
+                background: @main-color;
+            }
+        }
+    }
+    /deep/.ivu-form-item-error .ivu-input-group-prepend,
+    /deep/.ivu-form-item-error .ivu-input-group-append{
+        border: none!important;
+    }
+    /deep/.ivu-form-item-content{
+        display: flex;
+        line-height: 48px;
+        .ivu-input{
+            height: 48px;
+            border: none !important;
+            box-shadow: none;
+            font-size: 18px;
+        }
+
+        .ivu-input-group-prepend,
+        .ivu-input-group-append{
+            background: white;
+            padding-left: 14px;
+            position: relative;
+            &:after{
+                background: #999;
+                position: absolute;
+                right: 0px;
+                content: "";
+                width: 1px;
+                top:15px;
+                bottom: 15px;
+            }
+        }
+        .ivu-btn{
+            margin-top: 24px;
+            transition: box-shadow .3s, transform .3s;
+            &:hover{
+                box-shadow: 0 0 8px fade(@main-color,100);
+                transform: translateY(-1px);
+            }
+        }
+        i{
+            font-size: 18px;
+            color: #9b9b9b;
+            line-height: 1;
+        }
+        .icon-cus-user:before{
+            content: "\e99b";
+        }
+        .icon-cus-pwd:before{
+            content: "\e99c";
+        }
+        .icon-cus-phone::before{
+            content: "\e99d";
+        }
+        .icon-cus-checkno::before{
+            content: "\e99e";
+        }
+        .ivu-form-item-error-tip{
+            padding-top: 5px;
+        }
+        .btn{
+            background: white;
+            flex-shrink: 0;
+            color: @main-color;
+            padding: 0 16px;
+            border-radius: 4px;
+            margin-left: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            &.disabled{
+                color: #bbb;
+            }
+        }
+    }
+    .form-con{
+        margin-top: 34px;
+    }
+
 }

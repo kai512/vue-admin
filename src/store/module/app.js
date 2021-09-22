@@ -13,9 +13,9 @@ import {
 } from '@/libs/util'
 import { saveErrorLogger } from '@/api/data'
 import router from '@/router'
-import routers from '@/router/routers'
+import routers from '@/router/module'
 import config from '@/config'
-const {
+var {
 	homeName
 } = config
 
@@ -34,26 +34,27 @@ export default {
 		homeRoute: {},
 		local: localRead('local'),
 		errorList: [],
-		hasReadErrorPage: false
+		hasReadErrorPage: false,
+        menuList : []
 	},
 	getters: {
-		menuList: (state, getters, rootState) => getMenuByRouter(routers, rootState.user.access),
+		menuList: (state, getters, rootState) => state.menuList,
 		errorCount: state => state.errorList.length
 	},
 	mutations: {
 		setBreadCrumb(state, route) {
-			state.breadCrumbList = getBreadCrumbList(route, state.homeRoute)
+			state.breadCrumbList = getBreadCrumbList(route)
 		},
 		setHomeRoute(state, routes) {
-			state.homeRoute = getHomeRoute(routes, homeName)
+			state.homeRoute = getHomeRoute(routes, config.homeName)
 		},
 		setTagNavList(state, list) {
 			let tagList = []
 			if(list) {
 				tagList = [...list]
 			} else tagList = getTagNavListFromLocalstorage() || []
-			if(tagList[0] && tagList[0].name !== homeName) tagList.shift()
-			let homeTagIndex = tagList.findIndex(item => item.name === homeName)
+			if(tagList[0] && tagList[0].name !== config.homeName) tagList.shift()
+			let homeTagIndex = tagList.findIndex(item => item.name === config.homeName)
 			if(homeTagIndex > 0) {
 				let homeTag = tagList.splice(homeTagIndex, 1)[0]
 				tagList.unshift(homeTag)
@@ -75,7 +76,7 @@ export default {
 			if(!routeHasExist(state.tagNavList, router)) {
 				if(type === 'push') state.tagNavList.push(router)
 				else {
-					if(router.name === homeName) state.tagNavList.unshift(router)
+					if(router.name === config.homeName) state.tagNavList.unshift(router)
 					else state.tagNavList.splice(1, 0, router)
 				}
 				setTagNavListInLocalstorage([...state.tagNavList])
@@ -90,7 +91,10 @@ export default {
 		},
 		setHasReadErrorLoggerStatus(state, status = true) {
 			state.hasReadErrorPage = status
-		}
+		},
+        addRouters(state, addRouters){
+            state.menuList = addRouters;
+        }
 	},
 	actions: {
 		addErrorLog({

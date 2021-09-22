@@ -286,67 +286,7 @@ export default {
 }
 </script>
 <style lang="less">
-    //重置
-    @primary-color:#4c7eef;//主色
-    @primary-color-hover:#7c9ff1;//主色hover
-    @border-color-base: #e9eaec;//边框色
-    @border-color-dark: #dcdee2;//深一点的边框色
-    @warning-color:#f58a44;//警告色
-    @success-color:#27d098;//成功色
-    @error-color:#ff3b30;//错误色
-
-    //
-    @dark-header-bg-color: #121a2c;//头部背景色
-    @dark-left-slider-bg-color:#212b45;//侧栏背景色
-    @dark-left-slider-open-bg-color:#19233c;//侧栏展开背景色
-    @dark-default-color:#8490a7;//dark风格默认菜单色
-    @dark-selected-color:#ffffff;//dark风格选中菜单色
-    @dark-header-hover-bg-color:#202a42;//头部菜单经过
-    @dark-left-slider-hover-bg-color:#29334e;//侧栏经过
-    @main-hover-color:#7c9ff1;//hover
-    @main-content-bg-color:#f8f8f9;//内容块背景
-    @dark-left-slider-bg-active-color:#4c7eef;//菜单选中背景
-    @main-color:@primary-color;//主色
-
-    //常用颜色
-    @light-green:@success-color;//亮绿色
-    @green:@success-color;//绿色
-    @red:@warning-color;//红色
-    //文本
-    @text-dark:#1c2438;//最深
-    @text-normal:#495060;//普通
-    @text-light:#80848f;//灰色
-    @text-lighter:#8490a7;//浅灰
-    @text-lightest:#bbbec4;//最浅
-    @lable-color:@text-light;//表单label
-
-    //边框
-    @border-color-btn: #8490a7;//按钮边框色
-    @border-color-btn-light: #dddee1;//按钮浅边框色
-
-    //常用间距
-    @xs-space:4px;
-    @s-space:8px;
-    @n-space:12px;
-    @m-space:16px;
-    @l-space:20px;
-    @xl-space:24px;
-
-    //字号
-    @font-size-micro: 12px;
-    @font-size-small: 14px;
-    @font-size-base: 16px;
-    @font-size-large: 18px;
-
-    //上传图片/图标尺寸
-    @upload-img-s:40px;
-    @upload-img-m:60px;
-    @upload-img-l:80px;
-    @upload-img-xl:120px;
-    //上传
-    @border-color-dark: #dcdee2;
-    @text-light:#80848f;
-    @border-color-base: #e9eaec;
+    @import '../../assets/style/vars.less';
     .img-upload-box{
         display: inline-block;
         vertical-align: top;
@@ -548,8 +488,8 @@ export default {
         }
         &~.img-info{
             margin: @l-space;
-            font-size: @font-size-micro;
-            color: @text-normal;
+            font-size:14px;
+            color: #bbb;
             line-height: 1.25;
         }
         .ivu-icon-ios-trash-outline{
@@ -599,18 +539,24 @@ export default {
         border-radius: 50%;
     }
     .img-info{
-        color: @text-light;
+        color: #bbb;
         margin-top: @s-space;
     }
     .ivu-upload-drag p{
         color: @text-light;
     }
+    .ivu-icon-ios-cloud-upload{
+        color: @main-color !important;
+    }
     .ivu-icon-ios-cloud-upload-outline:before{
         content: "\e908";
-        font-family: icon;
+        font-family: icon-font;
     }
     .ivu-btn-ghost{
         color:@main-color;
         border-color: currentcolor;
+    }
+    .ivu-upload-drag p{
+        color: #bbb;
     }
 </style>

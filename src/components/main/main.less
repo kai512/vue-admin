@@ -1,22 +1,83 @@
+@import '../../assets/style/vars.less';
 .main {
-    .logo-con {
-        height: 64px;
-        padding: 10px;
-        img {
-            height: 44px;
-            width: auto;
+    // 侧栏
+    .logo-con{
+        font-size: 24px;
+        color: white;
+        text-align: center;
+        height: auto;
+        padding-top: 30px;
+        margin-bottom: 38px;
+        span{
             display: block;
-            margin: 0 auto;
+            margin-top: 8px;
+            white-space: nowrap;
+            font-weight: bold;
+        }
+        img{
+            height: 64px;
+        }
+        .logo-mini{
+            img{
+                height: 32px;
+                margin-left: -2px;
+            }
         }
     }
+    .left-sider{
+        &.ivu-layout-sider{
+            background: @left-sider-bg;
+            .side-menu-wrapper{
+                padding: @sider-padding-space;
+            }
+            .ivu-menu-dark.ivu-menu-vertical{
+                .ivu-menu-opened{
+                    border-radius: @sider-radius;
+                    overflow: hidden;
+                    background: @menu-opened-bg;
+                    .ivu-menu-submenu-title{
+                        background: @main-color;
+                    }
+                }
+                .ivu-menu-submenu{
+                    .ivu-menu-item-active,
+                    .ivu-menu-item-active:hover{
+                        background: none !important;
+                        color: @main-color;
+                    }
+                }
+                .ivu-menu-submenu-title-icon{
+                    right: 8px;
+                }
+                .ivu-menu-item,
+                .ivu-menu-submenu-title{
+                    padding: 10px 16px;
+                    padding-right: 40px;
+                }
+            }
+            .side-menu-wrapper a.drop-menu-a{
+                padding: 6px 10px;
+            }
+            .ivu-menu-dark{
+                background: none;
+            }
+        }
+    }
+    // 侧栏end
+
     .header-con {
-        background: #fff;
+        background: @header-con-bg;
         padding: 0 20px;
         width: 100%;
+        box-shadow: 0 4px 6px rgba(0,0,0,.05);
+        position: relative;
     }
     .main-layout-con {
         height: 100%;
         overflow: hidden;
+        &.ivu-layout{
+            background: @background-color-base;
+        }
     }
     .main-content-con {
         height: ~"calc(100% - 60px)";
@@ -25,10 +86,23 @@
     .tag-nav-wrapper {
         padding: 0;
         height: 40px;
-        background: #F0F0F0;
+        background: @tag-nav-bg;
+        position: relative;
+        .ivu-tag-dot{
+            background: @ivu-tag-bg !important;
+        }
+    }
+    .tags-nav {
+        .close-con,
+        .btn-con{
+            background: @tag-btn-bg;
+        }
+    }
+    .tags-nav .scroll-outer{
+        box-shadow: 0 0 2px rgba(100, 100, 100, 0.1) inset;
     }
     .content-wrapper {
-        padding: 18px;
+        padding:8px;
         height: ~"calc(100% - 80px)";
         overflow: auto;
     }
@@ -38,41 +112,13 @@
             margin-right: -18px;
         }
     }
-}
-
-.ivu-menu-item>i {
-    margin-right: 12px !important;
-}
-
-.ivu-menu-submenu>.ivu-menu>.ivu-menu-item>i {
-    margin-right: 8px !important;
-}
-
-.collased-menu-dropdown {
-    width: 100%;
-    margin: 0;
-    line-height: normal;
-    padding: 7px 0 6px 16px;
-    clear: both;
-    font-size: 12px !important;
-    white-space: nowrap;
-    list-style: none;
-    cursor: pointer;
-    transition: background 0.2s ease-in-out;
-    &:hover {
-        background: rgba(100, 100, 100, 0.1);
+    //面包屑
+    .ivu-breadcrumb{
+        color: @text-light;
+        font-size: @font-size-small !important;
     }
-    & * {
-        color: #515a6e;
+    //伸缩图标
+    .sider-trigger-a{
+        color: @text-light;
     }
-    .ivu-menu-item>i {
-        margin-right: 12px !important;
-    }
-    .ivu-menu-submenu>.ivu-menu>.ivu-menu-item>i {
-        margin-right: 8px !important;
-    }
-}
-
-.ivu-select-dropdown.ivu-dropdown-transfer {
-    max-height: 400px;
 }

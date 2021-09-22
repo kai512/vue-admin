@@ -1,6 +1,6 @@
 /**
  * oss富文本框上传
- * @author jliangliang
+ * @author jliangliang@linewell.com
  */
 
 	import plupload from "@/libs/plupload/plupload.full.min.js"

@@ -1,6 +1,7 @@
 <template>
 	<a @click="handleChange" type="text" :class="['sider-trigger-a', collapsed ? 'collapsed' : '']">
-		<Icon :type="icon" :size="size" />
+		<!-- <Icon :type="icon" :size="size" /> -->
+        <i class="icon-cus-menu"></i>
 	</a>
 </template>
 <script>

@@ -1,5 +1,3 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
 import router from './router'
@@ -10,10 +8,10 @@ import config from '@/config'
 import importDirective from '@/directive'
 import { directive as clickOutside } from 'v-click-outside-x'
 import installPlugin from '@/plugin'
-import './index.less'
+import '@/assets/style/custom.less';
 import '@/assets/icons/iconfont.css'
-// import '@/single-spa-config.js'
-require('@/single-spa-config.js')
+import '@/libs/ztree/zTreeStyle.less'
+// require('@/single-spa-config.js')
 
 // 实际打包时应该不引入mock
 /* eslint-disable */
